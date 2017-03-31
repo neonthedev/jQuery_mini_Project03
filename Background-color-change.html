@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Background color change</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <style>
+            body{
+                font-family: 'Righteous', cursive;
+                font-size: 54px;
+            }
+            .select{
+                    border: 2px solid black;
+                    height: 40px;
+                    margin: 0 auto;
+                    display: block;
+                    outline-style: none;
+                    font-size: 25px;
+                }
+        </style>
+       
+    </head>
+    
+<body>
+        <div class="col-lg-6 back">
+         <span>Background : </span><select name="" id="list">
+             <option value="#3B9C9C">Dark Tormoise</option>
+             <option value="#7F462C">Sepia</option>
+             <option value="#8defea">Green</option>
+             <option value="#d7ea9d">Yellow</option>
+             <option value="#990012">Red wine</option>
+         </select>
+</div>
+</body>
+
+</html>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+         <script>
+                     $(function(){
+            
+            var color = $("#list").val();
+            $("body").css("background",color);
+            
+           $("#list").change(function(){
+               var color = $("#list").val();
+               $("body").css("background",color);
+           });
+            
+        });
+         </script>
+    
+    </body>
+</html>

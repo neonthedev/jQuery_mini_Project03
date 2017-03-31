@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Weather App with ajax-json</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+       <style>
+
+          body{
+            background-image: url('http://cdn.skilledup.com/wp-content/uploads/2014/11/20601-Sunny-1290x688.jpg');
+            font-family: 'Righteous', cursive;
+            color:93073E;
+          }
+           .weather-box{
+                        position: fixed;
+                        border: 3px solid #444;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                        padding: 25px;
+                        text-align: center;
+         }
+       .twitter-share-button{
+                        padding: 10px 20px;
+                        background: #5BC0DE;
+                        border-radius: 5px;
+                        cursor: pointer;
+        }
+      .btn-info {
+            color: #fff;
+            background-color:#154877;
+            border-color: #46b8da;
+            margin-top: -30px;
+       }
+
+       </style>
+
+    </head>
+    
+<body>
+    <!-- Weather-box start -->
+    <div class="weather-box">
+        <h3 id="City">City</h3>
+        <h1 id="Country">Country</h1>
+        <h3><span id="Temp">0</span><sup>o</sup>C</h3>
+        <ul class="list-unstyled list-inline">
+            <li><input type="text" placeholder="Enter your City Name" class="form-control"></li>
+            <li><button type="button" class="btn btn-info">Check it</button></li>
+        </ul>
+        <br>
+        <a class="twitter-share-button">Tweet</a>
+    </div>
+    <!-- Weather-box end -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                var City_name= $("input").val();
+                GoWeather(City_name);
+            });
+            
+            function GoWeather(City_name){
+                $.ajax({
+                    url: "http://api.apixu.com/v1/current.json?key=6eabd4c8e35a47208ca150757173003&q="+ City_name,
+                    dataType: "json",
+                    success: function(data){
+                        $("#City").text(data.location.name);
+                        $("#Country").text(data.location.country);
+                        $("#Temp").text(data.current.temp_c);
+                        
+                        /*** twitter start ***/
+                        var a= "City Name : " + data.location.name + ", " + "Country Name : " + data.location.country + ", " + "Temparature : " + data.current.temp_c;
+                        $(".twitter-share-button").attr("href","https://twitter.com/intent/tweet?text="+a);
+                    },
+                    error: function(data){
+                        alert("Please Enter Correct City Name");
+                    }
+               });
+            }
+            
+        });
+    </script>
+
+</body>
+</html>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </body>
+</html>

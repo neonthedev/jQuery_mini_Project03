@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datepicker with jQuery UI</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <style>
+            body{
+                background-color: #044E65;
+                font-family: 'Righteous', cursive;
+                font-size: 54px;
+            }
+        </style>
+       
+    </head>
+    
+<body>
+        <span>Date : <input type="text" id="datepicker"</span>
+
+</body>
+
+</html>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script>
+        /* Datepicker start */
+        $(function() {
+        $( "#datepicker" ).datepicker({
+            changeMonth: true,
+             changeYear: true
+    });
+  });
+
+        /* Datepicker end */
+    </script>
+    </body>
+</html>
